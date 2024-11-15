@@ -77,7 +77,8 @@ void Mgen::LogLegacyTimestamp(FILE* filePtr, const struct timeval& theTime, bool
         timePtr = gmtime((time_t*)&secs);
 
 #endif // if/else _WIN32_WCE
-     Mgen::Log(filePtr, "%02d:%02d:%02d.%06lu ",
+     Mgen::Log(filePtr, "%04d-%02d-%02d_%02d:%02d:%02d.%06lu ",
+                  1900+timePtr->tm_year, timePtr->tm_mon, timePtr->tm_mday,
                   timePtr->tm_hour, timePtr->tm_min, timePtr->tm_sec, 
                   (UINT32)theTime.tv_usec);
 }  // end Mgen::LogTimeStamp()
